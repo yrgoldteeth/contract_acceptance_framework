@@ -4,7 +4,7 @@ class Contract < ActiveRecord::Base
   validates :maintenance_version, :uniqueness => { :scope => [:minor_version, :major_version, :key] }
   validates :maintenance_version, :minor_version, :major_version, :key, :content, :presence => true
 
-  scope :accepted_by, lambda{|acceptable| joins(:contract_acceptances).where({ :contract_acceptances => { :acceptable_id => acceptable.id, :acceptable_type => acceptable.type } }) }
+  scope :accepted_by, lambda{|acceptable| joins(:contract_acceptances).where({ :contract_acceptances => { :acceptable_id => acceptable.id, :acceptable_type => acceptable.class.to_s } }) }
   scope :for_key, lambda{|key| where("`key` = ?", key) }
   scope :by_version, order("major_version DESC, minor_version DESC, maintenance_version DESC")
 
