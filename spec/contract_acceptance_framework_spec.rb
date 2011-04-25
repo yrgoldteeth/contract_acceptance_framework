@@ -3,6 +3,7 @@ require 'spec_helper'
 describe 'Contract Acceptance Framework' do
   let(:person) { Person.create }
   let(:contract) do
+    Contract.delete_all
     Contract.create(:major_version => 0, :minor_version => 0,
                     :maintenance_version => 0, :key => 'unique string',
                     :content => 'content')
@@ -24,15 +25,17 @@ describe 'Contract Acceptance Framework' do
   end
 
   describe '.has_agreed_to?' do
-    subject { person.has_agreed_to?(contract) }
-
     context 'when the contract has been agreed to' do
       before { person.agree_to!(contract) }
-      it { should be_true }
+      it 'should be true' do
+        person.has_agreed_to?(contract).should be_true
+      end
     end
 
     context 'when the contract has not been agreed to' do
-      it { should be_false }
+      it 'should be false' do
+        person.has_agreed_to?(contract).should be_false
+      end
     end
   end
 end

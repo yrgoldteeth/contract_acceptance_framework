@@ -23,4 +23,3 @@ ActiveRecord::Base.connection.create_table(:people)
 class Person < ActiveRecord::Base
   include ContractAcceptanceFramework
 end
-
