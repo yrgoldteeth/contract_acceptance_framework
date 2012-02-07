@@ -4,6 +4,7 @@ module ContractAcceptanceFramework
 
     def index
       @contracts = Contract.to_adapter.find_all
+      respond_with @contracts
     end
   end
 end
