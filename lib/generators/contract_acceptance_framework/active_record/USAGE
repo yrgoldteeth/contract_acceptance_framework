@@ -1,0 +1,7 @@
+Description:
+  Copies contract.rb to app/models/.
+  Copies contract_acceptance.rb to app/models/.
+  Copies create_contracts.rb to db/migrate.
+
+Examples:
+  'rails generate contract_acceptance_framework:active_record'

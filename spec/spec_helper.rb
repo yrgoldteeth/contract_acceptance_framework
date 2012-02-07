@@ -1,5 +1,10 @@
 require 'active_record'
-require 'contract_acceptance_framework'
+require './lib/contract_acceptance_framework/contract_acceptable'
+require './lib/contract_acceptance_framework/contract_extensions'
+require './lib/contract_acceptance_framework/contract_acceptance_extensions'
+require './lib/contract_acceptance_framework/errors'
+require './lib/generators/contract_acceptance_framework/active_record/templates/contract'
+require './lib/generators/contract_acceptance_framework/active_record/templates/contract_acceptance'
 
 ActiveRecord::Base.establish_connection(:adapter => "sqlite3", :database => ":memory:")
 
@@ -21,5 +26,5 @@ end
 ActiveRecord::Base.connection.create_table(:people)
 
 class Person < ActiveRecord::Base
-  include ContractAcceptanceFramework
+  include ContractAcceptanceFramework::ContractAcceptable
 end

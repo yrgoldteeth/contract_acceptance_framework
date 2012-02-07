@@ -1,0 +1,6 @@
+Description:
+  Copies contract.rb to app/models/.
+  Copies contract_acceptance.rb to app/models/.
+
+Examples:
+  'rails generate contract_acceptance_framework:mongoid'

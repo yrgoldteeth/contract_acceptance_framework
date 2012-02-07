@@ -1,24 +1,11 @@
-require 'contract_acceptance_framework/contract'
-require 'contract_acceptance_framework/contract_acceptance'
+require 'orm_adapter'
+require 'contract_acceptance_framework/errors'
+require 'contract_acceptance_framework/contract_acceptable'
+require 'contract_acceptance_framework/contract_extensions'
+require 'contract_acceptance_framework/contract_acceptance_extensions'
 
 module ContractAcceptanceFramework
-  extend ActiveSupport::Concern
-
-  included do
-    raise "class must inherit from ActiveRecord::Base" unless self < ActiveRecord::Base
-
-    has_many :contract_acceptances, :as => :acceptable
-    has_many :contracts, :through => :contract_acceptances
-
-    def has_agreed_to?(contract)
-      contracts.find(:all).include?(contract)
-    end
-
-    def agree_to!(contract)
-      raise ContractDuplicateAgreementError if has_agreed_to?(contract)
-      contract_acceptances.create(:contract => contract, :acceptable => self)
-    end
+  class Engine < Rails::Engine
   end
 end
 
-class ContractDuplicateAgreementError < StandardError; end
