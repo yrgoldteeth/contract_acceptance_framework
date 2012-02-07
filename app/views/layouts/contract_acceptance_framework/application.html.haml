@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title Contract Acceptance
+    = stylesheet_link_tag    "contract_acceptance_framework/application"
+    = javascript_include_tag "contract_acceptance_framework/application"
+    = csrf_meta_tags
+  %body
+    %div.topbar
+      %div.topbar-inner
+        %div.container-fluid
+          = link_to 'Contracts', contracts_path, class: 'brand'
+          %ul.nav
+            %li= link_to 'New Contract', new_contract_path
+    %div.container-fluid
+      = yield
+    = yield :javascripts

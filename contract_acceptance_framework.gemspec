@@ -22,6 +22,9 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'rails', '>= 3.0.0'
   s.add_dependency 'orm_adapter'
+  s.add_dependency 'bootstrap-sass'
+  s.add_dependency 'formtastic-bootstrap'
+  s.add_dependency 'haml'
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")

@@ -17,13 +17,9 @@ class CreateContracts < ActiveRecord::Migration
       t.integer :acceptable_id
       t.string  :acceptable_type
     end
-    add_index :contract_acceptance_framework_contract_acceptances, [:acceptable_id, :acceptable_type]
-    add_index :contract_acceptance_framework_contract_acceptances, :contract_id
   end
 
   def self.down
-    remove_index :contract_acceptance_framework_contract_acceptances, :column => :contract_id
-    remove_index :contract_acceptance_framework_contract_acceptances, :column => [:acceptable_id, :acceptable_type]
     drop_table :contract_acceptance_framework_contract_acceptances
 
     remove_index :contract_acceptance_framework_contracts, :column => [:key]
