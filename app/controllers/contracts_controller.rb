@@ -1,5 +1,5 @@
 module ContractAcceptanceFramework
-  class ContractsController < ::ApplicationController
+  class ContractsController < ApplicationController
     respond_to :json
 
     def index
