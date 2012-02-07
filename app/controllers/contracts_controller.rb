@@ -3,7 +3,7 @@ module ContractAcceptanceFramework
     respond_to :json
 
     def index
-      @contracts = Contract.to_adapter.find_all
+      @contracts = ContractAcceptanceFramework::Contract.to_adapter.find_all
       respond_with @contracts
     end
   end
