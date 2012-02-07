@@ -1,0 +1,13 @@
+.contracts-module
+  %table.zebra-striped
+    %thead
+      %tr
+        %th Key
+        %th Version
+    %tbody
+      - @contracts.each do |contract|
+        %tr
+          %td= link_to contract, contract_path(contract)
+          %td.object-actions
+            = link_to "Edit", edit_contract_path(contract), class: 'btn'
+            = button_to "Delete", contract_path(contract), method: :delete, class: 'btn danger'
