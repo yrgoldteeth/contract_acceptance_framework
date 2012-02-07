@@ -10,7 +10,7 @@ class ContractAcceptanceFramework::MongoidGenerator < Rails::Generators::Base
   end
   
   def create_model_file
-    template 'contract.rb', 'app/models/contract.rb'
-    template 'contract_acceptance.rb', 'app/models/contract_acceptance.rb'
+    template 'contract.rb', 'app/models/contract_acceptance_framework/contract.rb'
+    template 'contract_acceptance.rb', 'app/models/contract_acceptance_framework/contract_acceptance.rb'
   end
 end

@@ -14,8 +14,8 @@ class ContractAcceptanceFramework::ActiveRecordGenerator < Rails::Generators::Ba
   end
   
   def create_model_file
-    template 'contract.rb', 'app/models/contract.rb'
-    template 'contract_acceptance.rb', 'app/models/contract_acceptance.rb'
+    template 'contract.rb', 'app/models/contract_acceptance_framework/contract.rb'
+    template 'contract_acceptance.rb', 'app/models/contract_acceptance_framework/contract_acceptance.rb'
     migration_template 'create_contracts.rb', 'db/migrate/create_contracts.rb'
   end
 end
